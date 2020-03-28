@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+   <title> Texto en canvas  </title>
+   <style>
+   #lienzo{
+     border: 1px #FF0000 solid;
+   }
+   section{
+     width: 800px;
+     position: relative;
+     margin: auto;
+   }
+   </style>
+   <script>
+   function comenzar(){
+     var elemento=document.getElementById("lienzo");
+     lienzo=elemento.getContext("2d");
+     /*lienzo.font="bold 20px verdana";
+     lienzo.fillText("hola perros",50,20);
+     lienzo.translate(100,100);
+     lienzo.scale(3,3);
+     lienzo.rotate(Math.PI*0.25);
+     lienzo.fillText("hola perros",50,20);
+     */
+     /*
+     lienzo.transform(3,1,2,3,150,200); // valores por defecto 1-0-0-1-0-0
+     //(ancho,rotar,sezgar,alto,(coordenadas,del canvas))
+     lienzo.font="bold 20px verdana";
+     //settransform es para resetearlo
+     lienzo.fillText("hola perros",50,50);
+     */
+     lienzo.font="bold 20px verdana";
+     lienzo.save();
+     lienzo.fillText("hola alumnos",50,50);
+     lienzo.translate(60,70);
+     lienzo.rotate(Math.PI/180 * 55);
+     lienzo.fillText("hola alumnos ",0,0);
+     //lienzo.rotate(-Math.PI/180 * 55);
+     lienzo.restore();
+     lienzo.translate(300,400);
+     lienzo.scale(2,2);
+     lienzo.fillText("hola alumnos",0,0);
+
+    }
+   window.addEventListener("load",comenzar,false);
+   </script>
+ </head>
+
+ <body>
+<section id="dibujo">
+  <canvas id="lienzo" width="1200" height="900">
+    NO  SOPORTA CANVAS
+  </canvas>
+</section>
+
+
+</body>
+
+</html>

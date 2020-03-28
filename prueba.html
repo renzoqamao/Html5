@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+   <title> Prueba 1 nuevas reglas </title>
+   <style>
+   /*
+   p[name="miselementos"]{  name^⁼"mis" solo los que comienzan  name$="os" solo los que terminan con os name*="l"para todos los que contienen la letra
+     color:#F00;
+   } */
+    /*p:nth-child(2){
+      color: #F00;
+    }*/
+    p:first-child{ /* first, last, only */
+      color: #F00;
+    }
+
+   </style>
+ </head>
+
+ <body>
+   <!--
+   <p name="miselementos"> Hola </p>
+   <p name="miselementos"> Adios </p>
+   <p name="estilos "> Febrero </p> -->
+
+   <p> Hola </p>
+   <p> Adios </p>
+   <p> Febrero </p>
+
+   <ol>
+     <li> frutas </li>
+     <li> <p> manzanas </p>
+       <p> limon </p>
+       <p> pera </p>
+       <p> melon </p> </li>
+    </ol>
+
+</body>
+
+</html>

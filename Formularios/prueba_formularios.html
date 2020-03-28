@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+   <title> FORMULARIOS  </title>
+
+
+ </head>
+
+ <body>
+  <section>
+   <form name="miformulario" id="miformulario" method="get">
+    Email:&nbsp ; <input type="email" name="email" id="email" autocomplete="off" required><br><br>
+    texto autocompletado : &nbsp;<input type="text" name="texto" id="texto" autocomplete="off" required multiple><br><br>
+
+     Buscar:&nbsp ; <input type="search" name="buscar" id="buscar" autocomplete="off"><br><br>
+     Url:&nbsp; <input type="url" name="url" id="url" autofocus><br><br>
+     Edad: &nbsp; <input type="number" name="edad" id="edad" min="18" max="100" step="5" placeholder="numeros multiplos de 5" width="500px"><br><br>
+     Edad: &nbsp; <input type="range" name="edad" id="edad" min="5" max="105" ><br><br>
+     Date: &nbsp;<input type="date" name="fecha" id="fecha"><br><br>
+     month: &nbsp;<input type="month" name="fecha" id="fecha"><br><br>
+     week: &nbsp;<input type="week" name="fecha" id="fecha"><br><br>
+     time: &nbsp;<input type="time" name="fecha" id="fecha"><br><br>
+     Date: &nbsp;<input type="datetime" name="fecha zona horaria" id="fecha"><br><br>
+     C, postal : &nbsp; <input pattern="[0-9][5]" name="cpostal" id="cpostal" placeholder="5 digitos"><br><br>
+     <input type="submit" value="ENVIA PRRO">
+   </form>
+ </section>
+<img src="../Documentos/HTML5/ejercicio_guiado/ejercicio1/imagenes/1.jpg" width="200" height="200">
+<br>
+nombre: &nbsp ; <input type="text" id="nombre" name="nombre" form="miformulario" required>
+
+
+
+</body>
+
+</html>

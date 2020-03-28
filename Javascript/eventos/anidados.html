@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+   <title> Eventos dobles en cajas </title>
+   <script>
+      function loseventos(){
+            var elemento=document.getElementsByTagName("p")[0];
+            var elemento2=document.getElementsByTagName("img")[0];
+            elemento.addEventListener("click",aviso2,true);
+            elemento2.addEventListener("click",aviso1,false);
+      }
+      function aviso1(){
+        alert("hola soy la imagen");
+      }
+      function aviso2(){
+          alert("hola soy el parrafo")
+      }
+
+      window.addEventListener("load",loseventos,false);
+   </script>
+
+ </head>
+
+
+ <body>
+   <p><img src="imagenes/1.jpg"></p>
+</body>
+
+</html>

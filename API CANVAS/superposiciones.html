@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+   <title> superposiciones e imagenes en el canvas  </title>
+   <style>
+   #lienzo{
+     border: 1px #FF0000 solid;
+   }
+
+   </style>
+   <script>
+   function comenzar(){
+     var elemento=document.getElementById("lienzo");
+     lienzo=elemento.getContext("2d");
+     /*lienzo.fillStyle="#880000";
+     lienzo.fillRect(400,250,300,100);
+     lienzo.globalCompositeOperation="destination-atop";
+     lienzo.fillStyle="#AAAAFF";
+     lienzo.font="bold 80px verdana";
+     lienzo.textAlign="center";
+     lienzo.textBaseline="middle";
+     lienzo.fillText("hola perros",550,300);
+     */
+     var imagen=new Image();
+     imagen.src="http://www.pildorasinformaticas.com/archivos/logos/html5online.jpg";
+     //imagen.addEventListener("load",function(){lienzo.drawImage(imagen,0,0,elemento.width,elemento.height)},false);
+     imagen.addEventListener("load",function(){lienzo.drawImage(imagen,50,10,75,75,0,0,300,300)},false);
+     // * 50,10 empezamos a recortar la imagen// 75-75 tamaño de la imagen// 0-0 se dibuja desde ese coordenadaa // tamaño del recorte 300-300 
+     }
+   window.addEventListener("load",comenzar,false);
+   </script>
+ </head>
+
+ <body>
+<section id="dibujo">
+  <canvas id="lienzo" width="1200" height="900">
+    NO  SOPORTA CANVAS
+  </canvas>
+</section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+   <title> animaciones en el lienzo </title>
+   <style>
+   #lienzo{
+     border: 1px #FF0000 solid;
+   }
+
+   </style>
+   <script>
+   var y=300;
+   var arriba=y;
+   var horizontal=0;
+   var estado="bajando";
+   function comenzar(){
+     var elemento=document.getElementById("lienzo");
+     lienzo=elemento.getContext("2d");
+
+     setInterval(animacion,25);
+   }
+
+   function animacion(){
+     if(y<850 && estado=="bajando"){
+     lienzo.clearRect(0,0,1200,900)
+     lienzo.beginPath();
+     lienzo.arc(500+horizontal,y,40,0,Math.PI*2);
+     lienzo.fill();
+     y+=50;
+     horizontal+=4;
+    }
+    if(y==850){
+      arriba+=50;
+      estado="subiendo"
+    }
+    if(y>=arriba && estado=="subiendo"){
+      lienzo.clearRect(0,0,1200,900)
+      lienzo.beginPath();
+      lienzo.arc(500+horizontal,y,40,0,Math.PI*2);
+      lienzo.fill();
+      y-=50;
+      horizontal+=4;
+    }
+    if(y==arriba){
+      estado="bajando";
+    }
+
+   }
+   window.addEventListener("load",comenzar,false);
+   </script>
+ </head>
+
+ <body>
+<section id="dibujo">
+  <canvas id="lienzo" width="1200" height="900">
+    NO  SOPORTA CANVAS
+  </canvas>
+</section>
+
+
+</body>
+
+</html>

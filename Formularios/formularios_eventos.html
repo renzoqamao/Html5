@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+   <title> FORMULARIOS  NUEVOS  </title>
+   <style>
+    table{
+      text-align: center;
+      background-color: #F96;
+      width: 35%;
+      margin: auto;
+      border: 2px #F30 dashed;
+    }
+    td{
+      padding: 15px;
+    }
+   </style>
+
+   <script>
+    function comenzar(){
+      edad=document.getElementById("miedad");
+      edad.addEventListener("change",cambia_rango,false);
+      document.datos_usuario.addEventListener("invalid",validar,true);
+      document.getElementById("enviar").addEventListener("click",enviar,false);
+      document.datos_usuario.addEventListener("input",validartiemporeal,false);
+    }
+    function cambia_rango(){
+      var salida=document.getElementById("rango");
+      var calculo=edad.value - 30 ;
+      if (calculo<30) {
+          calculo=0;
+          edad.value=30;
+      }
+      salida.innerHTML=calculo+"a" +edad.value;
+    }
+    function validar(e){
+      var elemento=e.target;
+      elemento.style.background="#FFDDDD";
+
+    }
+    function enviar(){
+      var correcto=document.datos_usuario.checkValidity(); /*devuelve true o false */
+      var cuadro_usuario=document.getElementById("usuario");
+      if (correcto) {
+        document.datos_usuario.submit();
+      }
+      else if ((cuadro_usuario.validity.valueMissing==true) || (cuadro_usuario.validity.patternMismatch==true)) {
+        alert("el usuario no puede estar vacio y tiene que tener 3 letras");
+      }
+      /* valueMissing
+        patternMismatch
+        typeMismatch
+        toolong
+        rangeUnderflow
+        rangeOverflow
+        stepMismatchcustomError*/
+    }
+    function validartiemporeal(e){
+      var elemento=e.target; // LOCALIZA EL EVENTO QUE GENERA ERROR
+      if (elemento.validity.valid==true) {
+        elemento.style.background="#FFFFFF";
+      }
+      else {
+        elemento.style.background="#FFDDDD";
+      }
+    }
+
+    window.addEventListener("load",comenzar,false);
+   </script>
+ </head>
+
+ <body>
+<section>
+  <form name="datos_usuario" method="get">
+    <table><tr><td>
+      usuario:</td><td> <input pattern="[A-za-z]{3}" name="usuario" id="usuario" maxlength="10" required placeholder="3 letras"></td></tr>
+      <tr><td>
+      email:</td><td> <input type="email" name="miemail" id="miemail" required></td></tr>
+      <tr><td>
+      Edad:</td><td> <input type="range" name="miedad" id="miedad" min="0" max="120" value="30" step="30"></td></tr>
+      <tr><td>
+      <output id="rango">0 a 30 </output></td></tr>
+    <tr><td>
+      <input type="submit" id="enviar" value="registrar"></td></tr>
+  </form>
+</section>
+
+
+</body>
+
+</html>

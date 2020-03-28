@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+   <title> Tipos de Linea  </title>
+   <style>
+   #lienzo{
+     border: 1px #FF0000 solid;
+   }
+   section{
+     width: 800px;
+     position: relative;
+     margin: auto;
+   }
+   </style>
+   <script>
+   function comenzar(){
+     var elemento=document.getElementById("lienzo");
+     lienzo=elemento.getContext("2d");
+     //cara
+     lienzo.arc(200,150,100,0,Math.PI*2,false);
+     lienzo.stroke();
+     // boca
+     lienzo.lineWidth=10;
+     lienzo.lineCap="round"; // round-square-butt // como terminan las lineas
+
+     lienzo.beginPath();
+     lienzo.arc(200,170,60,0,Math.PI,false);
+     lienzo.stroke();
+     // nariz
+     lienzo.lineWidth=5;
+     lienzo.lineJoin="miter"; // round-bevel // como conectan las lineas
+     lienzo.miterLimit=5; // solo para miter
+     lienzo.beginPath();
+     lienzo.moveTo(195,135);
+     lienzo.lineTo(215,155);
+     lienzo.lineTo(195,155);
+     lienzo.stroke();
+
+     //ojos
+     lienzo.lineWidth=1; // grosor de la linea
+     lienzo.beginPath();
+     lienzo.arc(175,110,7,0,Math.PI*2,false);
+     lienzo.arc(225,110,7,0,Math.PI*2,false);
+     lienzo.fill();
+     lienzo.beginPath();
+     lienzo.arc(168,106,15,0,Math.PI*2,false);
+     lienzo.stroke();
+     lienzo.beginPath();
+     lienzo.arc(232,106,15,0,Math.PI*2,false);
+     lienzo.stroke();
+
+   }
+   window.addEventListener("load",comenzar,false);
+   </script>
+ </head>
+
+ <body>
+<section id="dibujo">
+  <canvas id="lienzo" width="800" height="600">
+    NO  SOPORTA CANVAS
+  </canvas>
+</section>
+
+
+</body>
+
+</html>
